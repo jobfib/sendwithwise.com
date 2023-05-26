@@ -8,8 +8,10 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     steps: 
-      - uses: actions/checkout@v3
-      - uses: actions/setup-python@v2
+      - uses: actions/checkout@v3with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+      - uses: actions/setup-python@v2with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
         with:
           python-version: 3.x
       - run: pip install -r requirements.txt
